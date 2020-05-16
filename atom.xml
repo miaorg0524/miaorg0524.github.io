@@ -49,6 +49,38 @@
   </entry>
   
   <entry>
+    <title>PaperNote 2：2018 TRCA</title>
+    <link href="https://miaorg0524.github.io/2020/04/06/new/"/>
+    <id>https://miaorg0524.github.io/2020/04/06/new/</id>
+    <published>2020-04-06T14:58:35.000Z</published>
+    <updated>2020-04-07T07:39:14.722Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>Enhancing Detection of SSVEPs for a High-Speed Brain Speller Using Task-Related Component Analysis</center><center>Masaki Nakanishi et al 2018</center><center>IEEE TRANSACTIONS ON BIOMEDICAL ENGINEERING</center><p><strong>Abstract:</strong> Task-related component analysis (TRCA), which can enhance reproducibility of SSVEPs across multiple trials, was employed to improve the signal-to-noise ratio (SNR) of SSVEP signals by removing background electroencephalographic (EEG) activities. An ensemble method was further developed to integrate TRCA filters corresponding to multiple stimulation frequencies. This study validated the efficiency of the proposed TRCA-based method in implementing a high-speed SSVEP-based BCI. Significance: The high-speed SSVEPbased BCIs using the TRCA method have great potential for various applications in communication and control.</p><a id="more"></a>  <h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>之前的方法就是直接把EEG信号作为$X$，任务相关信号是把EEG分为任务相关信号（进行刺激的时间段）以及任务不相关信号（非刺激段）。再把任务相关信号提取出来。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;center&gt;Enhancing Detection of SSVEPs for a High-Speed Brain Speller Using Task-Related Component Analysis&lt;/center&gt;
+&lt;center&gt;Masaki Nakanishi et al 2018&lt;/center&gt;
+&lt;center&gt;IEEE TRANSACTIONS ON BIOMEDICAL ENGINEERING&lt;/center&gt;
+
+
+
+
+&lt;p&gt;&lt;strong&gt;Abstract:&lt;/strong&gt; Task-related component analysis (TRCA), which can enhance reproducibility of SSVEPs across multiple trials, was employed to improve the signal-to-noise ratio (SNR) of SSVEP signals by removing background electroencephalographic (EEG) activities. An ensemble method was further developed to integrate TRCA filters corresponding to multiple stimulation frequencies. This study validated the efficiency of the proposed TRCA-based method in implementing a high-speed SSVEP-based BCI. Significance: The high-speed SSVEPbased BCIs using the TRCA method have great potential for various applications in communication and control.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Paper note" scheme="https://miaorg0524.github.io/categories/Paper-note/"/>
+    
+    
+      <category term="BCI" scheme="https://miaorg0524.github.io/tags/BCI/"/>
+    
+      <category term="Frequency detection" scheme="https://miaorg0524.github.io/tags/Frequency-detection/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PaperNote 1：2020 multi-stimulus enhances target recognition methods</title>
     <link href="https://miaorg0524.github.io/2020/04/05/2020%20multi-stimulus%20enhances%20target%20recognition%20methods/"/>
     <id>https://miaorg0524.github.io/2020/04/05/2020%20multi-stimulus%20enhances%20target%20recognition%20methods/</id>

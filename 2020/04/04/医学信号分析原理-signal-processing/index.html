@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>医学信号分析原理/signal processing | Miao&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="signal processing" />
+  
+  
+  
+  
+  <meta name="description" content="Lecture note课程：医学信号分析原理老师：国立阳明大学 卢家锋">
+<meta property="og:type" content="article">
+<meta property="og:title" content="医学信号分析原理&#x2F;signal processing">
+<meta property="og:url" content="https://miaorg0524.github.io/2020/04/04/%E5%8C%BB%E5%AD%A6%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90%E5%8E%9F%E7%90%86-signal-processing/index.html">
+<meta property="og:site_name" content="Miao&#39;s blog">
+<meta property="og:description" content="Lecture note课程：医学信号分析原理老师：国立阳明大学 卢家锋">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2020/04/04/1M9Dunjxg3HWkZh.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/04/Fgf4Y5Wm8soiwSr.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/04/c6Rlx4doabSjuLQ.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/04/JNx2ZrTmdvRk57M.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/04/EcgjI4QXyZGRqWs.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/04/AfZaeXUVHFihr67.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/04/IFpjZ3J2w4ORqy1.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/04/F7DJXLeME9rKaOb.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/04/Go9XR5Zya8V4svx.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/04/IgJOTQADH8aCSni.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/04/Sg9s1IzE7OFAvbf.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/04/vBQk8YA4rL3udlO.png">
+<meta property="article:published_time" content="2020-04-03T16:07:47.000Z">
+<meta property="article:modified_time" content="2020-04-06T09:09:28.654Z">
+<meta property="article:author" content="Miao Runfeng">
+<meta property="article:tag" content="signal processing">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/04/04/1M9Dunjxg3HWkZh.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Miao&#39;s blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/miaorg0524.github.io/css\images\1.jfif">
+  <link rel="apple-touch-icon" href="/miaorg0524.github.io/css\images\1.jfif">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/miaorg0524.github.io/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/miaorg0524.github.io/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/miaorg0524.github.io/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/miaorg0524.github.io/css/style.css">
+
+
+  
+<script src="/miaorg0524.github.io/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/miaorg0524.github.io/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/miaorg0524.github.io/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/miaorg0524.github.io/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/miaorg0524.github.io/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/miaorg0524.github.io/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/miaorg0524.github.io/css\images\1.jfif">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/miaorg0524.github.io/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/miaorg0524.github.io/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/miaorg0524.github.io/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/miaorg0524.github.io/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/miaorg0524.github.io/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/miaorg0524.github.io/',
+        CONTENT_URL: '/miaorg0524.github.io/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/miaorg0524.github.io/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-医学信号分析原理-signal-processing" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      医学信号分析原理/signal processing
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/miaorg0524.github.io/2020/04/04/%E5%8C%BB%E5%AD%A6%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90%E5%8E%9F%E7%90%86-signal-processing/" class="article-date">
+	  <time datetime="2020-04-03T16:07:47.000Z" itemprop="datePublished">2020-04-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/miaorg0524.github.io/categories/lecture-note/">lecture note</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Lecture note<br>课程：医学信号分析原理<br>老师：国立阳明大学 卢家锋</p>
+<a id="more"></a>  
+<h1 id="Lecture-1"><a href="#Lecture-1" class="headerlink" title="Lecture 1"></a>Lecture 1</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>2020.04.03</p>
+<h3 id="生理信号特性"><a href="#生理信号特性" class="headerlink" title="生理信号特性"></a>生理信号特性</h3><p>以非侵入式的测量方式取得的运动生理特征。<br>主要有脑电波、近红外光脑血氧、心电图、肌电图、动作追踪以及步态记录。</p>
+<blockquote>
+<p>脑电波、心电图：电讯号（surface）</p>
+</blockquote>
+<blockquote>
+<p>所有生理信号都有其<font color="red">独特的频域和时域特征</font></p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/04/04/1M9Dunjxg3HWkZh.png" alt="图一 生理讯号特征"></p>
+<h3 id="信号的相互干扰"><a href="#信号的相互干扰" class="headerlink" title="信号的相互干扰"></a>信号的相互干扰</h3><p>信号干扰：不一定就是不好的，只不过在这个特定的时间点（测量时）对目标信号会有干扰。<br><strong>脑电波</strong>：讲话，舌头、喉咙所带来的肌肉动作、眼动都会影响脑电信号，进而产生<font color="red">假的信号，假的振幅</font>。<br><strong>血氧</strong>：会受到心跳的影响，在1HZ-1.5HZ之间会出现一个很强的power。<br><strong>肌电</strong>：同样的，肌电信号也会与心跳信号相混叠。</p>
+<h3 id="信号间的相关性"><a href="#信号间的相关性" class="headerlink" title="信号间的相关性"></a>信号间的相关性</h3><p>在某些情况下，往往又会希望看到不同信号组合在一起时的相关性。</p>
+<h3 id="事件自动侦测"><a href="#事件自动侦测" class="headerlink" title="事件自动侦测"></a>事件自动侦测</h3><h3 id="量化生理变化程度"><a href="#量化生理变化程度" class="headerlink" title="量化生理变化程度"></a><font color="red">量化</font>生理变化程度</h3><p><img src="https://i.loli.net/2020/04/04/Fgf4Y5Wm8soiwSr.png" alt="图二 信号的干扰、相关性等"></p>
+<h3 id="分析步骤"><a href="#分析步骤" class="headerlink" title="分析步骤"></a>分析步骤</h3><p><strong>信号分析目标</strong></p>
+<ul>
+<li>去除生理、仪器、环境的噪音干扰</li>
+<li>探讨信号的变化程度（时域/频域）</li>
+<li>特征提取与特征识别</li>
+<li>信号、行为的相关性分析</li>
+</ul>
+<p><img src="https://i.loli.net/2020/04/04/c6Rlx4doabSjuLQ.png" alt="图三 信号分析步骤"></p>
+<h2 id="信号分析实例"><a href="#信号分析实例" class="headerlink" title="信号分析实例"></a>信号分析实例</h2><p>2020.04.04</p>
+<blockquote>
+<p>例一：呼吸肌与心跳信号相混叠。</p>
+</blockquote>
+<ul>
+<li>不同位置的呼吸肌与心跳的混叠程度各不相同。<br><img src="https://i.loli.net/2020/04/04/JNx2ZrTmdvRk57M.png" alt="图一 四个channel有不同的混叠程度"></li>
+<li>可以使用独立成分分析（ICA）将其分隔开。（即：试图将混合信号分离出几个独立成分）</li>
+<li>如下图，我们会发现做完ICA后，有一个channel（IC2）的信号包含大量心跳信息。<br><img src="https://i.loli.net/2020/04/04/EcgjI4QXyZGRqWs.png" alt="图二 呼吸肌与心跳信号的分离"></li>
+<li>先分离（ICA），再重构（Reconstruct）。重构时把IC2丢掉不要，这样就做到了呼吸信号和心跳信号的分离。<br><img src="https://i.loli.net/2020/04/04/AfZaeXUVHFihr67.png" alt="图三 分离后的四个channel"></li>
+</ul>
+<blockquote>
+<p>例二：运动想象</p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/04/04/IFpjZ3J2w4ORqy1.png" alt="图四 EEG脑电与眼动混叠"></p>
+<ul>
+<li>区分低频与高频：在单位时间变化很剧烈的就是高频。</li>
+<li>HEOG,VEOG：水平眼动信号，垂直眼动信号。</li>
+<li>做完ICA后，可以把每一条子带都和眼动信号做线性相关分析，与之相关性很大的就是分离出来的眼动信息，将之丢弃，其余信号进行重构。</li>
+</ul>
+<p><img src="https://i.loli.net/2020/04/04/F7DJXLeME9rKaOb.png" alt="图五 去除眼动后的脑电信号（2），滤波后（3）"></p>
+<ul>
+<li>由上图可见，去除眼动信号后（2，1），信号基本与脑电信号强相关，但是还是肉眼可见一个<font color="red">频率基本不变</font>的震荡波形存在其中，此时就可以用滤波器滤除。（3，1）则是滤波后的图形。</li>
+</ul>
+<p><img src="https://i.loli.net/2020/04/04/Go9XR5Zya8V4svx.png" alt="图六 运动想象的时频域图像"></p>
+<ul>
+<li>蓝色代表强度低，红色强度高。</li>
+<li>其实是一个三维数据（横纵轴、颜色），其中颜色代表power。</li>
+<li>想象左手运动则右脑活跃，想象右手运动则左脑活跃——对侧效应。</li>
+</ul>
+<p><img src="https://i.loli.net/2020/04/04/IgJOTQADH8aCSni.png" alt="图七 Beta波"></p>
+<ul>
+<li>由于惯用手的原因，在想象右手运动的时候可以很轻易的体现出左右脑活跃程度不同的差异，但是想象左手运动的时候则需要同侧大脑的部分协助。从图中也可以反映出这一点。</li>
+</ul>
+<p>（看来幼儿时期的左右手使用情况，与其对侧大脑的发育情况强相关，左脑决定人的思维逻辑，是理性的一面，右脑决定艺术思维，是感性的一面。右半脑发达的人：因为右脑是祖脑，左脑是右脑的分机，所以在知觉、想像力方面有可能更强一些；思索问题以及处理事情反应方面有可能更快一些；而且知觉、空间感和把握全局的能力都有可能更强一些。在各种动作上相对更敏捷一些。怪不得之前听过一种说法是左撇子的人聪明。所以最强的育儿宝典是科学，市面上的那些书都是渣渣。）</p>
+<blockquote>
+<p>相关性分析：运动想象脑电波功能耦合</p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/04/04/Sg9s1IzE7OFAvbf.png" alt="图八 刺激后大脑的活跃区域与过程"></p>
+<p><img src="https://i.loli.net/2020/04/04/vBQk8YA4rL3udlO.png" alt="图九 事件侦测"></p>
+<ul>
+<li>蓝色代表左脚的footswitch，红色代表右脚。</li>
+<li>该病人右脚受伤。受伤特性：左脚撑地时间会更久。这也会反应在图中。</li>
+</ul>
+<h2 id="MATLAB基础语法"><a href="#MATLAB基础语法" class="headerlink" title="MATLAB基础语法"></a>MATLAB基础语法</h2><h1 id="Lecture-3"><a href="#Lecture-3" class="headerlink" title="Lecture 3"></a>Lecture 3</h1><p>2020.04.06</p>
+<h2 id="信号资料格式介绍"><a href="#信号资料格式介绍" class="headerlink" title="信号资料格式介绍"></a>信号资料格式介绍</h2><h2 id="资料输入"><a href="#资料输入" class="headerlink" title="资料输入"></a>资料输入</h2><p>医学信号必要信息</p>
+<ul>
+<li>采样频率(Sampling rates)</li>
+<li>记录单位(Physical units)</li>
+<li>数值范围(Dynamic ranges)</li>
+<li>资料长度(Data length)</li>
+<li>事件记录(Events, Annotations, Markers)</li>
+<li>其他信息</li>
+</ul>
+<h2 id="MATLAB信号绘制与资料改写"><a href="#MATLAB信号绘制与资料改写" class="headerlink" title="MATLAB信号绘制与资料改写"></a>MATLAB信号绘制与资料改写</h2><p>三种信号画法：</p>
+<ul>
+<li>单一视窗单一图轴单一信号</li>
+<li>单一视窗单一图轴多个信号（hold on）</li>
+<li>单一视窗多个图轴多个信号（subplot）</li>
+</ul>
+<h1 id="Lecture-4-信号预处理"><a href="#Lecture-4-信号预处理" class="headerlink" title="Lecture 4 信号预处理"></a>Lecture 4 信号预处理</h1><p>2020.04.06</p>
+<h2 id="信号重新取样"><a href="#信号重新取样" class="headerlink" title="信号重新取样"></a>信号重新取样</h2><p>两个或两个以上不同的信号，希望他们rematch</p>
+<ul>
+<li>增加采样频率（interpolation）</li>
+<li>降低采样频率（decimation）</li>
+</ul>
+<h3 id="采样方法"><a href="#采样方法" class="headerlink" title="采样方法"></a>采样方法</h3><p><strong>upsample方法：</strong></p>
+<ol>
+<li>在生理信号中不会用填0的方法。</li>
+<li>linear-upsampling：在两个点之间填均值（mean），线性内插</li>
+<li>曲线拟合的方式</li>
+</ol>
+<p><strong>decimate方法</strong><br>按照一定频率丢掉一些data points</p>
+<h3 id="信号提取后重新采样"><a href="#信号提取后重新采样" class="headerlink" title="信号提取后重新采样"></a>信号提取后重新采样</h3><ul>
+<li>重新取样时要注意高频成分的aliasing（高频成分反褶到低频信号与之混合）——奈奎斯特定理</li>
+<li>decimate要在降低采样频率前先做低通滤波</li>
+<li>三个function：decimate；downsample；resample</li>
+</ul>
+<h2 id="信号切割与平均"><a href="#信号切割与平均" class="headerlink" title="信号切割与平均"></a>信号切割与平均</h2><p>矩阵常用函数表</p>
+<ul>
+<li>ones %创建特定大小的一矩阵</li>
+<li>zeros %创建特定大小的零矩阵</li>
+<li>rand %创建特定大小的随机矩阵（uniform distribution）</li>
+<li>randn %创建特定大小的随机矩阵（normal distribution）</li>
+<li>size %返回矩阵大小</li>
+<li>length %返回向量长度</li>
+<li>find %返回符合条件的矩阵元素位置</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/miaorg0524.github.io/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: 'Your support is my biggest power, thanks!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://i.loli.net/2020/04/04/98DxtlbrCuXNed1.png',
+  alipayImage: 'https://i.loli.net/2020/04/04/v74IKcAbL59YQGp.png'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>Miao Runfeng</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/miaorg0524.github.io/2020/04/04/医学信号分析原理-signal-processing/" target="_blank" title="医学信号分析原理/signal processing">https://miaorg0524.github.io/2020/04/04/医学信号分析原理-signal-processing/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/miaorg0524.github.io/tags/signal-processing/" rel="tag">signal processing</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/miaorg0524.github.io/2020/04/04/Brain%20Computer%20Interface/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Brain Computer Interface
+        
+      </div>
+    </a>
+  
+  
+    <a href="/miaorg0524.github.io/2020/04/01/Code%20of%20CCA%20for%20SSVEP/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CCA for SSVEP</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-1"><span class="nav-number">1.</span> <span class="nav-text">Lecture 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生理信号特性"><span class="nav-number">1.1.1.</span> <span class="nav-text">生理信号特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信号的相互干扰"><span class="nav-number">1.1.2.</span> <span class="nav-text">信号的相互干扰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信号间的相关性"><span class="nav-number">1.1.3.</span> <span class="nav-text">信号间的相关性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件自动侦测"><span class="nav-number">1.1.4.</span> <span class="nav-text">事件自动侦测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#量化生理变化程度"><span class="nav-number">1.1.5.</span> <span class="nav-text">量化生理变化程度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析步骤"><span class="nav-number">1.1.6.</span> <span class="nav-text">分析步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号分析实例"><span class="nav-number">1.2.</span> <span class="nav-text">信号分析实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MATLAB基础语法"><span class="nav-number">1.3.</span> <span class="nav-text">MATLAB基础语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-3"><span class="nav-number">2.</span> <span class="nav-text">Lecture 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信号资料格式介绍"><span class="nav-number">2.1.</span> <span class="nav-text">信号资料格式介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资料输入"><span class="nav-number">2.2.</span> <span class="nav-text">资料输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MATLAB信号绘制与资料改写"><span class="nav-number">2.3.</span> <span class="nav-text">MATLAB信号绘制与资料改写</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-4-信号预处理"><span class="nav-number">3.</span> <span class="nav-text">Lecture 4 信号预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信号重新取样"><span class="nav-number">3.1.</span> <span class="nav-text">信号重新取样</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#采样方法"><span class="nav-number">3.1.1.</span> <span class="nav-text">采样方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信号提取后重新采样"><span class="nav-number">3.1.2.</span> <span class="nav-text">信号提取后重新采样</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号切割与平均"><span class="nav-number">3.2.</span> <span class="nav-text">信号切割与平均</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2020 - 2020 Miao&#39;s blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/miaorg0524.github.io/" class="mobile-nav-link">Home</a>
+  
+    <a href="/miaorg0524.github.io/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/miaorg0524.github.io/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/miaorg0524.github.io/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/miaorg0524.github.io/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/miaorg0524.github.io/fancybox/jquery.fancybox.css">
+
+  
+<script src="/miaorg0524.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/miaorg0524.github.io/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/miaorg0524.github.io/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Miao&#39;s blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 Miao Runfeng All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

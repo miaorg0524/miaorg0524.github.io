@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Miao&#39;s blog</title>
+  
+  
+  <link href="/miaorg0524.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://miaorg0524.github.io/"/>
+  <updated>2020-04-07T07:39:14.722Z</updated>
+  <id>https://miaorg0524.github.io/</id>
+  
+  <author>
+    <name>Miao Runfeng</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PaperNote 2：2018 TRCA</title>
+    <link href="https://miaorg0524.github.io/2020/04/06/2018%20TRCA/"/>
+    <id>https://miaorg0524.github.io/2020/04/06/2018%20TRCA/</id>
+    <published>2020-04-06T14:58:35.000Z</published>
+    <updated>2020-04-07T07:39:14.722Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>Enhancing Detection of SSVEPs for a High-Speed Brain Speller Using Task-Related Component Analysis</center><center>Masaki Nakanishi et al 2018</center><center>IEEE TRANSACTIONS ON BIOMEDICAL ENGINEERING</center><p><strong>Abstract:</strong> Task-related component analysis (TRCA), which can enhance reproducibility of SSVEPs across multiple trials, was employed to improve the signal-to-noise ratio (SNR) of SSVEP signals by removing background electroencephalographic (EEG) activities. An ensemble method was further developed to integrate TRCA filters corresponding to multiple stimulation frequencies. This study validated the efficiency of the proposed TRCA-based method in implementing a high-speed SSVEP-based BCI. Significance: The high-speed SSVEPbased BCIs using the TRCA method have great potential for various applications in communication and control.</p><a id="more"></a>  <h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>之前的方法就是直接把EEG信号作为$X$，任务相关信号是把EEG分为任务相关信号（进行刺激的时间段）以及任务不相关信号（非刺激段）。再把任务相关信号提取出来。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;center&gt;Enhancing Detection of SSVEPs for a High-Speed Brain Speller Using Task-Related Component Analysis&lt;/center&gt;
+&lt;center&gt;Masaki Nakanishi et al 2018&lt;/center&gt;
+&lt;center&gt;IEEE TRANSACTIONS ON BIOMEDICAL ENGINEERING&lt;/center&gt;
+
+
+
+
+&lt;p&gt;&lt;strong&gt;Abstract:&lt;/strong&gt; Task-related component analysis (TRCA), which can enhance reproducibility of SSVEPs across multiple trials, was employed to improve the signal-to-noise ratio (SNR) of SSVEP signals by removing background electroencephalographic (EEG) activities. An ensemble method was further developed to integrate TRCA filters corresponding to multiple stimulation frequencies. This study validated the efficiency of the proposed TRCA-based method in implementing a high-speed SSVEP-based BCI. Significance: The high-speed SSVEPbased BCIs using the TRCA method have great potential for various applications in communication and control.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Paper note" scheme="https://miaorg0524.github.io/categories/Paper-note/"/>
+    
+    
+      <category term="BCI" scheme="https://miaorg0524.github.io/tags/BCI/"/>
+    
+      <category term="Frequency detection" scheme="https://miaorg0524.github.io/tags/Frequency-detection/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PaperNote 1：2020 multi-stimulus enhances target recognition methods</title>
+    <link href="https://miaorg0524.github.io/2020/04/05/2020%20multi-stimulus%20enhances%20target%20recognition%20methods/"/>
+    <id>https://miaorg0524.github.io/2020/04/05/2020%20multi-stimulus%20enhances%20target%20recognition%20methods/</id>
+    <published>2020-04-05T14:58:35.000Z</published>
+    <updated>2020-04-07T06:45:11.939Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>Learning across multi-stimulus enhances target recognition methods in SSVEP-based BCIs</center><center>Chi Man Wong et al 2020</center><center>Journal of Neural Engineering</center><p><strong>Abstract:</strong> In this study, the proposed learning across stimuli scheme is developed to strengthen two state-ofthe- art methods: the eCCA and eTRCA method. The idea behind the proposed learning scheme is to re-use the calibration data corresponding to nontarget stimulus.A new learning scheme is proposed towards the efficient use of the calibration data, providing enhanced performance and saving calibration time in the SSVEP-based BCIs.</p><a id="more"></a>  <h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><ol><li>Recently, the subject’s calibration data/training data is adopted to construct subject-specific reference signals/templates(Multiway CCA, MsetCCA, IT-CCA, eCCA), these methods need an additional offline calibration stage is conducted for each subject to generate individual data for learning.</li><li>The eCCA is proposed to compute the spatial filters <font color="red"> using both the subject-specific reference signals and the sine–cosine reference signals.</font></li><li>The TRCA is a spatial filtering approach for the time-locked near-infrared spectroscopy (NIRS) signal, which <font color="red"> finds the spatial filter by maximizing the covariance of the time-locked signals across different trials.</font></li><li>The number of calibration trials for each visual stimulus cannot be small for the eCCA method and the eTRCA method; otherwise, their recognition accuracies would decrease dramatically.</li><li>All high-speed SSVEP based BCI need a large dataset, which is hard to get(fatigue, time…). <strong>Learning from small training data in BCIs has been noticed.</strong><ul><li>One possible solution: Learn from multiple subjects, which assumes that the training data from different subjects have some common information that can be shared, thus the data for training can be enlarged.<br>In<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Yuan P, Chen X, Wang Y, Gao X and Gao S 2015 Enhancing performances of SSVEP-based brain–computer interfaces via exploiting inter-subject information J. Neural Eng.12 046006">[1]</span></a></sup>, Yuan et al assume that different subjects share a common template, and thus they design a generic template based on the existing subjects to simulate the new subject‘s template for the CCA-based methods. The resulting improvement is limited since their assumption is too ideal to cope with the considerable individual difference in practical use.<br><img src="https://i.loli.net/2020/04/05/vZzfpCLxFc9J6B1.png" alt="Fig.1 tt-CCA"><br>In<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Suefusa K and Tanaka T 2017 Reduced calibration by efficient transformation of templates for high speed hybrid coded ssvep brain–computer interfaces IEEE Int. Conf. on Acoustics, Speech and Signal Processing (IEEE) pp 929–33">[2]</span></a></sup>,Suefusa et al attempt to utilize the subject’s insufficient training data to generate the templates for the CCA-based methods. The basic idea is to generate the templates by <font color="red"> shifting the frequency and phase of the known templates estimated</font> from the insufficient training data. The resulting accuracy is inferior to the existing CCA-based methods in frequency recognition as the synthesized templates cannot replace the real templates.</li><li>In summary, the current solutions cannot effectively solve the small training data problem in SSVEP-based BCIs, i.e. reducing the training data while maintaining the high performance.<h1 id="Key-Idea"><a href="#Key-Idea" class="headerlink" title="Key Idea"></a>Key Idea</h1></li></ul></li></ol><ul><li>This paper proposes a new learning scheme (i.e. a learning across multi-stimulus scheme) for the target  recognition methods (e.g. the eCCA and eTRCA methods). The key idea is to utilize the training data corresponding to <font color="red"> not only the target stimulus but also the neighboring stimuli</font>.</li><li>This would greatly enlarge the size of the available calibration data for learning and consequently better performance in learning.</li><li>It is assumed that the training data corresponding to neighboring stimuli can be assigned with <font color="red">a common spatial filter, which relies on an important fact that subject’s SSVEPs share a similar spatial distribution across different stimuli.</font></li></ul><h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p><img src="https://i.loli.net/2020/04/06/cVZdzNo1rinBlj3.png" alt="blob"></p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Yuan P, Chen X, Wang Y, Gao X and Gao S 2015 Enhancing performances of SSVEP-based brain–computer interfaces via exploiting inter-subject information J. Neural Eng.12 046006<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Suefusa K and Tanaka T 2017 Reduced calibration by efficient transformation of templates for high speed hybrid coded ssvep brain–computer interfaces IEEE Int. Conf. on Acoustics, Speech and Signal Processing (IEEE) pp 929–33<a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+    
+    <summary type="html">
+    
+      &lt;center&gt;Learning across multi-stimulus enhances target recognition methods in SSVEP-based BCIs&lt;/center&gt;
+&lt;center&gt;Chi Man Wong et al 2020&lt;/center&gt;
+&lt;center&gt;Journal of Neural Engineering&lt;/center&gt;
+
+
+
+
+&lt;p&gt;&lt;strong&gt;Abstract:&lt;/strong&gt; In this study, the proposed learning across stimuli scheme is developed to strengthen two state-ofthe- art methods: the eCCA and eTRCA method. The idea behind the proposed learning scheme is to re-use the calibration data corresponding to nontarget stimulus.A new learning scheme is proposed towards the efficient use of the calibration data, providing enhanced performance and saving calibration time in the SSVEP-based BCIs.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Paper note" scheme="https://miaorg0524.github.io/categories/Paper-note/"/>
+    
+    
+      <category term="BCI" scheme="https://miaorg0524.github.io/tags/BCI/"/>
+    
+      <category term="Frequency detection" scheme="https://miaorg0524.github.io/tags/Frequency-detection/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Brain Computer Interface</title>
+    <link href="https://miaorg0524.github.io/2020/04/04/Brain%20Computer%20Interface/"/>
+    <id>https://miaorg0524.github.io/2020/04/04/Brain%20Computer%20Interface/</id>
+    <published>2020-04-04T08:57:47.000Z</published>
+    <updated>2020-04-06T14:54:53.690Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Lecture note<br>课程：Brain Computer Interface<br>老师：Christian Kothe, SCCN, UCSD</p><h1 id="Lecture-1-Introduction"><a href="#Lecture-1-Introduction" class="headerlink" title="Lecture 1: Introduction"></a>Lecture 1: Introduction</h1><p>2020.04.04</p><a id="more"></a>  <h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><ul><li>Linear Algebra</li><li>Fundamentals of Programming</li><li>Coding experience of MATLAB<h2 id="What-is-BCI"><a href="#What-is-BCI" class="headerlink" title="What is BCI?"></a>What is BCI?</h2><h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3></li><li>“The goal of BCI technology is to give severely paralyzed people another way to communicate, a way that does not depend on muscle control.”(1970s)</li><li>“A BCI is a system that measures CNS activity and converts it into artificial output that replaces, restores, enhances, supplements, or improves natural CNS out.”(2015)<h3 id="Three-BCI-Subtypes"><a href="#Three-BCI-Subtypes" class="headerlink" title="Three BCI Subtypes"></a>Three BCI Subtypes</h3></li><li><strong>Active BCI:</strong> “An active BCI is a BCI which derives its outputs from brain activity which is directly consciously controlled by the user, independently from external events, for controlling an application.”</li><li><strong>Reactive BCI:</strong> “A reactive BCI which derives its outputs from brain activity arising in reaction to external stimulation, which is indirectly modulated by the user for controlling an application.”</li><li><strong>Passive BCI:</strong> “A passive BCI is a BCI which derives its outputs from arbitrary brain activity without the purpose of voluntary control, for enriching a human-computer interaction with implicit information.”<h3 id="Brian-Signals"><a href="#Brian-Signals" class="headerlink" title="Brian Signals"></a>Brian Signals</h3></li><li>Electroencephalogram(EEG)</li><li>Functional Near-Infrared Spectroscopy(fNIRS,功能性近红外光谱)</li><li>Magnetoencephalography(MEG,脑磁图描记术)</li><li>Other Invasive Brain Signals…<h3 id="Non-Brain-Signals"><a href="#Non-Brain-Signals" class="headerlink" title="Non-Brain Signals"></a>Non-Brain Signals</h3></li><li>Motion Capture, Eye Tracking</li><li>Electromyography(EMG，肌电图), Electrocardiography(ECG，心电图), Electrooculography(EOG，眼电图)</li><li>Environmental Signals(line noise, room temperature,…)</li></ul><h2 id="Application-Areas-and-Examples"><a href="#Application-Areas-and-Examples" class="headerlink" title="Application Areas and Examples"></a>Application Areas and Examples</h2><h3 id="Communication-and-Control-for-the-Severely-Disabled"><a href="#Communication-and-Control-for-the-Severely-Disabled" class="headerlink" title="Communication and Control for the Severely Disabled"></a>Communication and Control for the Severely Disabled</h3><ul><li>Speller Programs</li><li>Prosthetic Control, Home Automation<h3 id="Operator-Monitoring"><a href="#Operator-Monitoring" class="headerlink" title="Operator Monitoring"></a>Operator Monitoring</h3></li><li>Workload/Fatigue/Alertness monitoring in Pilots,Air Traffic Controllers(All passive BCI above)</li><li>Braking Intent, Lane-Change Intent<h3 id="Forensics"><a href="#Forensics" class="headerlink" title="Forensics"></a>Forensics</h3></li><li>Lie detection, Brain Fingerprinting, Trust assessment<h3 id="Entertainment"><a href="#Entertainment" class="headerlink" title="Entertainment"></a>Entertainment</h3></li><li>Mood Assessment, Gaming, “Thought Control”, Fast Response Detection<h3 id="Social"><a href="#Social" class="headerlink" title="Social"></a>Social</h3></li><li>Neurowear<h3 id="Neuroscience"><a href="#Neuroscience" class="headerlink" title="Neuroscience"></a>Neuroscience</h3></li><li>Multivariate Pattern Analysis/ Brain Imaging </li></ul><h2 id="Scientific-Challenge"><a href="#Scientific-Challenge" class="headerlink" title="Scientific Challenge"></a>Scientific Challenge</h2><h3 id="Related-Areas-in-Science"><a href="#Related-Areas-in-Science" class="headerlink" title="Related Areas in Science"></a>Related Areas in Science</h3><ul><li><strong>Theory is shared with:</strong> Signal Processing, Machine Learning, Computational Intelligence, Neuroscience, Cognitive Science</li><li><strong>Problems are similar to:</strong> Computer Vision, Speech Recognition, Pattern Recognition, Time-Series Analysis, Control Systems &amp; Robotics  </li></ul><h3 id="Why-is-BCI-Hard"><a href="#Why-is-BCI-Hard" class="headerlink" title="Why is BCI Hard?"></a>Why is BCI Hard?</h3><ul><li>Processing depends on unknown parameters(person-specific, task-specific, otherwise variable)</li><li>Signal-to-noise ratio is very challenging, so sensitive measures are hard to obtain(Relevant brain activity is small compared to interfering artifacts and compared to  brain background activity)</li><li>Specific measures are even harder to obtain (with coarse-grained sensing)-Large collections of neurons are involved in many different activities, not just one</li><li>Underlying phenomena are also highly diverse and rich and derived measures are still poorly understood-not always clear what to look for</li><li>EEG signals are mathematically complicated to handle since<font color="red"> all sensors record almost the same signal (superposition of all brain activity)</font>  </li><li>Therefore they need to be computationally (e.g., statistically) disentangled for optimum performance</li></ul><h4 id="Reasons-for-Variability"><a href="#Reasons-for-Variability" class="headerlink" title="Reasons for Variability"></a>Reasons for Variability</h4><ul><li>Folding of cortex differs between any two persons(even monozygotic twins)</li><li>Relevant functional map differs across individuals</li><li>Sensor locations differ across recording sessions</li><li>Brain dynamics are nonstationary at all time scales</li></ul><h3 id="Consequences"><a href="#Consequences" class="headerlink" title="Consequences"></a>Consequences</h3><ul><li>Sophisticated signal processing is required</li><li>All approaches are fundamentally statistical</li><li>BCI systems must be calibrated before they can be used</li><li>Calibration should entail as much information as available, e.g., example data, prior knowledge, large databases</li></ul><h2 id="Available-Tools"><a href="#Available-Tools" class="headerlink" title="Available Tools"></a>Available Tools</h2><ul><li>BioSig: one of the oldest open-source BCI toolboxes for MATLAB/Octave</li><li>BCI2000</li><li>OpenViBE</li><li>g.BSanalyze</li><li>BCILAB: largest collection of BCI algorithms from signal processing, machine learning, etc.(2012)</li></ul><h1 id="Lecture-2-EEG-Basics"><a href="#Lecture-2-EEG-Basics" class="headerlink" title="Lecture 2: EEG Basics"></a>Lecture 2: EEG Basics</h1><h2 id="Underlying-Brain-Processes"><a href="#Underlying-Brain-Processes" class="headerlink" title="Underlying Brain Processes"></a>Underlying Brain Processes</h2><ul><li>All BCIs have to operate on observable effects of brain activity</li><li>Except for fMRI and fNIRS, they operate on effects of neural firing processes</li><li>EEG, MEG and ECoG can only detect large-scale neural dynamics</li><li>For example, 50.000 neurons firing in near-synchrony</li><li>Largest contributors to the EEG are the pyramidal cells</li><li>Radially oriented in the cortex (orthogonal to the surface)Pyramidal cell<br><img src="https://i.loli.net/2020/04/06/lf1CWxr3svyAHiO.png" alt="Pyramidal cell"></li><li>When would 50.000 neurons fire near-synchronously?</li></ul><p>-An external event triggers a cascade of related neural processes (e.g., in perception)<br>-An internal event triggers a cascade of related neural processes (e.g., sudden “aha!”)<br>-Neural populations enter a synchronized steady state firing pattern (e.g., idle oscillations)</p><h2 id="Spatial-Characteristics"><a href="#Spatial-Characteristics" class="headerlink" title="Spatial Characteristics"></a>Spatial Characteristics</h2><p><img src="https://i.loli.net/2020/04/06/yIJtO3ReWHwU4jo.png" alt="brain"></p><h2 id="Temporal-Characteristics"><a href="#Temporal-Characteristics" class="headerlink" title="Temporal Characteristics"></a>Temporal Characteristics</h2><h3 id="Oscillatory-Processes"><a href="#Oscillatory-Processes" class="headerlink" title="Oscillatory Processes"></a>Oscillatory Processes</h3><ul><li>EEG is permeated by oscillatory processes such as the alpha rhythm</li><li><font color="red"> Standard names</font> for such rhythms are delta (0-4Hz), theta (4-7Hz), alpha (8-13Hz), beta (12-30HZ), and gamma (25-100HZ</li></ul><p><strong>Alpha:</strong> Sensory areas (visual cortex, auditory cortex) and Motor areas (motor cortex) exhibit strong alpha-band oscillations when <font color="red"> “idle”</font> in most subjects<br><strong>Beta:</strong> Motor cortex often generates also beta-band oscillations<br><strong>Theta:</strong> Known to occur in <font color="red"> “bursts” relative to events</font> in certain brain areas (e.g. frontal midline, lateral frontal, …)</p><h2 id="Complex-EEG-Phenomena"><a href="#Complex-EEG-Phenomena" class="headerlink" title="Complex EEG Phenomena"></a>Complex EEG Phenomena</h2><p><img src="https://i.loli.net/2020/04/06/7Q2VrtGvsxUZMaJ.png" alt></p><h2 id="Non-Brain-Artifacts"><a href="#Non-Brain-Artifacts" class="headerlink" title="Non-Brain Artifacts"></a>Non-Brain Artifacts</h2><ul><li>Often far outscale the brain processes in the EEG (when present)</li><li><strong>Internally generated:</strong> neck, face and eye muscles, eye dipoles, heart activity</li><li><strong>Externally generated:</strong> 50/60Hz line noise, EM spikes from equipment</li><li><strong>Sensor-related:</strong> DC offset drifts, cable sway, thermal noise, quantization noise</li></ul><p><strong>Muscle Artifacts</strong></p><ul><li>High-frequency/broadband, large amplitude</li><li>Scalp projections are spatially stereotyped(?)</li></ul><p><strong>Eye Blinks</strong></p><ul><li>Large low-frequency peak and rebound, mainly frontal</li><li>Can also incurs non-linear effects in occipital cortex</li></ul><h2 id="Sensing-and-Acquisition"><a href="#Sensing-and-Acquisition" class="headerlink" title="Sensing and Acquisition"></a>Sensing and Acquisition</h2><h3 id="EEG-Sensor-Designs"><a href="#EEG-Sensor-Designs" class="headerlink" title="EEG Sensor Designs"></a>EEG Sensor Designs</h3><ul><li>Most EEG systems are gel-based（基于凝胶的）</li><li>Nowadays mostly using active electrodes</li><li><font color="red">Dry(gel-free)</font> systems are emerging quickly</li></ul><h3 id="Digitization"><a href="#Digitization" class="headerlink" title="Digitization"></a>Digitization</h3><p>After amplification (e.g., 50000x), signal is low-pass filtered using an analog filter, then digitally sampled at fixed rate<br><img src="https://i.loli.net/2020/04/06/x2tLCGK3TliphjA.png" alt></p><h3 id="Sampling-Theorem"><a href="#Sampling-Theorem" class="headerlink" title="Sampling Theorem"></a>Sampling Theorem</h3><p>Nyquist Theorem</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Lecture note&lt;br&gt;课程：Brain Computer Interface&lt;br&gt;老师：Christian Kothe, SCCN, UCSD&lt;/p&gt;
+&lt;h1 id=&quot;Lecture-1-Introduction&quot;&gt;&lt;a href=&quot;#Lecture-1-Introduction&quot; class=&quot;headerlink&quot; title=&quot;Lecture 1: Introduction&quot;&gt;&lt;/a&gt;Lecture 1: Introduction&lt;/h1&gt;&lt;p&gt;2020.04.04&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="lecture note" scheme="https://miaorg0524.github.io/categories/lecture-note/"/>
+    
+    
+      <category term="BCI" scheme="https://miaorg0524.github.io/tags/BCI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>医学信号分析原理/signal processing</title>
+    <link href="https://miaorg0524.github.io/2020/04/04/%E5%8C%BB%E5%AD%A6%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90%E5%8E%9F%E7%90%86-signal-processing/"/>
+    <id>https://miaorg0524.github.io/2020/04/04/%E5%8C%BB%E5%AD%A6%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90%E5%8E%9F%E7%90%86-signal-processing/</id>
+    <published>2020-04-03T16:07:47.000Z</published>
+    <updated>2020-04-06T09:09:28.654Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Lecture note<br>课程：医学信号分析原理<br>老师：国立阳明大学 卢家锋</p><a id="more"></a>  <h1 id="Lecture-1"><a href="#Lecture-1" class="headerlink" title="Lecture 1"></a>Lecture 1</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>2020.04.03</p><h3 id="生理信号特性"><a href="#生理信号特性" class="headerlink" title="生理信号特性"></a>生理信号特性</h3><p>以非侵入式的测量方式取得的运动生理特征。<br>主要有脑电波、近红外光脑血氧、心电图、肌电图、动作追踪以及步态记录。</p><blockquote><p>脑电波、心电图：电讯号（surface）</p></blockquote><blockquote><p>所有生理信号都有其<font color="red">独特的频域和时域特征</font></p></blockquote><p><img src="https://i.loli.net/2020/04/04/1M9Dunjxg3HWkZh.png" alt="图一 生理讯号特征"></p><h3 id="信号的相互干扰"><a href="#信号的相互干扰" class="headerlink" title="信号的相互干扰"></a>信号的相互干扰</h3><p>信号干扰：不一定就是不好的，只不过在这个特定的时间点（测量时）对目标信号会有干扰。<br><strong>脑电波</strong>：讲话，舌头、喉咙所带来的肌肉动作、眼动都会影响脑电信号，进而产生<font color="red">假的信号，假的振幅</font>。<br><strong>血氧</strong>：会受到心跳的影响，在1HZ-1.5HZ之间会出现一个很强的power。<br><strong>肌电</strong>：同样的，肌电信号也会与心跳信号相混叠。</p><h3 id="信号间的相关性"><a href="#信号间的相关性" class="headerlink" title="信号间的相关性"></a>信号间的相关性</h3><p>在某些情况下，往往又会希望看到不同信号组合在一起时的相关性。</p><h3 id="事件自动侦测"><a href="#事件自动侦测" class="headerlink" title="事件自动侦测"></a>事件自动侦测</h3><h3 id="量化生理变化程度"><a href="#量化生理变化程度" class="headerlink" title="量化生理变化程度"></a><font color="red">量化</font>生理变化程度</h3><p><img src="https://i.loli.net/2020/04/04/Fgf4Y5Wm8soiwSr.png" alt="图二 信号的干扰、相关性等"></p><h3 id="分析步骤"><a href="#分析步骤" class="headerlink" title="分析步骤"></a>分析步骤</h3><p><strong>信号分析目标</strong></p><ul><li>去除生理、仪器、环境的噪音干扰</li><li>探讨信号的变化程度（时域/频域）</li><li>特征提取与特征识别</li><li>信号、行为的相关性分析</li></ul><p><img src="https://i.loli.net/2020/04/04/c6Rlx4doabSjuLQ.png" alt="图三 信号分析步骤"></p><h2 id="信号分析实例"><a href="#信号分析实例" class="headerlink" title="信号分析实例"></a>信号分析实例</h2><p>2020.04.04</p><blockquote><p>例一：呼吸肌与心跳信号相混叠。</p></blockquote><ul><li>不同位置的呼吸肌与心跳的混叠程度各不相同。<br><img src="https://i.loli.net/2020/04/04/JNx2ZrTmdvRk57M.png" alt="图一 四个channel有不同的混叠程度"></li><li>可以使用独立成分分析（ICA）将其分隔开。（即：试图将混合信号分离出几个独立成分）</li><li>如下图，我们会发现做完ICA后，有一个channel（IC2）的信号包含大量心跳信息。<br><img src="https://i.loli.net/2020/04/04/EcgjI4QXyZGRqWs.png" alt="图二 呼吸肌与心跳信号的分离"></li><li>先分离（ICA），再重构（Reconstruct）。重构时把IC2丢掉不要，这样就做到了呼吸信号和心跳信号的分离。<br><img src="https://i.loli.net/2020/04/04/AfZaeXUVHFihr67.png" alt="图三 分离后的四个channel"></li></ul><blockquote><p>例二：运动想象</p></blockquote><p><img src="https://i.loli.net/2020/04/04/IFpjZ3J2w4ORqy1.png" alt="图四 EEG脑电与眼动混叠"></p><ul><li>区分低频与高频：在单位时间变化很剧烈的就是高频。</li><li>HEOG,VEOG：水平眼动信号，垂直眼动信号。</li><li>做完ICA后，可以把每一条子带都和眼动信号做线性相关分析，与之相关性很大的就是分离出来的眼动信息，将之丢弃，其余信号进行重构。</li></ul><p><img src="https://i.loli.net/2020/04/04/F7DJXLeME9rKaOb.png" alt="图五 去除眼动后的脑电信号（2），滤波后（3）"></p><ul><li>由上图可见，去除眼动信号后（2，1），信号基本与脑电信号强相关，但是还是肉眼可见一个<font color="red">频率基本不变</font>的震荡波形存在其中，此时就可以用滤波器滤除。（3，1）则是滤波后的图形。</li></ul><p><img src="https://i.loli.net/2020/04/04/Go9XR5Zya8V4svx.png" alt="图六 运动想象的时频域图像"></p><ul><li>蓝色代表强度低，红色强度高。</li><li>其实是一个三维数据（横纵轴、颜色），其中颜色代表power。</li><li>想象左手运动则右脑活跃，想象右手运动则左脑活跃——对侧效应。</li></ul><p><img src="https://i.loli.net/2020/04/04/IgJOTQADH8aCSni.png" alt="图七 Beta波"></p><ul><li>由于惯用手的原因，在想象右手运动的时候可以很轻易的体现出左右脑活跃程度不同的差异，但是想象左手运动的时候则需要同侧大脑的部分协助。从图中也可以反映出这一点。</li></ul><p>（看来幼儿时期的左右手使用情况，与其对侧大脑的发育情况强相关，左脑决定人的思维逻辑，是理性的一面，右脑决定艺术思维，是感性的一面。右半脑发达的人：因为右脑是祖脑，左脑是右脑的分机，所以在知觉、想像力方面有可能更强一些；思索问题以及处理事情反应方面有可能更快一些；而且知觉、空间感和把握全局的能力都有可能更强一些。在各种动作上相对更敏捷一些。怪不得之前听过一种说法是左撇子的人聪明。所以最强的育儿宝典是科学，市面上的那些书都是渣渣。）</p><blockquote><p>相关性分析：运动想象脑电波功能耦合</p></blockquote><p><img src="https://i.loli.net/2020/04/04/Sg9s1IzE7OFAvbf.png" alt="图八 刺激后大脑的活跃区域与过程"></p><p><img src="https://i.loli.net/2020/04/04/vBQk8YA4rL3udlO.png" alt="图九 事件侦测"></p><ul><li>蓝色代表左脚的footswitch，红色代表右脚。</li><li>该病人右脚受伤。受伤特性：左脚撑地时间会更久。这也会反应在图中。</li></ul><h2 id="MATLAB基础语法"><a href="#MATLAB基础语法" class="headerlink" title="MATLAB基础语法"></a>MATLAB基础语法</h2><h1 id="Lecture-3"><a href="#Lecture-3" class="headerlink" title="Lecture 3"></a>Lecture 3</h1><p>2020.04.06</p><h2 id="信号资料格式介绍"><a href="#信号资料格式介绍" class="headerlink" title="信号资料格式介绍"></a>信号资料格式介绍</h2><h2 id="资料输入"><a href="#资料输入" class="headerlink" title="资料输入"></a>资料输入</h2><p>医学信号必要信息</p><ul><li>采样频率(Sampling rates)</li><li>记录单位(Physical units)</li><li>数值范围(Dynamic ranges)</li><li>资料长度(Data length)</li><li>事件记录(Events, Annotations, Markers)</li><li>其他信息</li></ul><h2 id="MATLAB信号绘制与资料改写"><a href="#MATLAB信号绘制与资料改写" class="headerlink" title="MATLAB信号绘制与资料改写"></a>MATLAB信号绘制与资料改写</h2><p>三种信号画法：</p><ul><li>单一视窗单一图轴单一信号</li><li>单一视窗单一图轴多个信号（hold on）</li><li>单一视窗多个图轴多个信号（subplot）</li></ul><h1 id="Lecture-4-信号预处理"><a href="#Lecture-4-信号预处理" class="headerlink" title="Lecture 4 信号预处理"></a>Lecture 4 信号预处理</h1><p>2020.04.06</p><h2 id="信号重新取样"><a href="#信号重新取样" class="headerlink" title="信号重新取样"></a>信号重新取样</h2><p>两个或两个以上不同的信号，希望他们rematch</p><ul><li>增加采样频率（interpolation）</li><li>降低采样频率（decimation）</li></ul><h3 id="采样方法"><a href="#采样方法" class="headerlink" title="采样方法"></a>采样方法</h3><p><strong>upsample方法：</strong></p><ol><li>在生理信号中不会用填0的方法。</li><li>linear-upsampling：在两个点之间填均值（mean），线性内插</li><li>曲线拟合的方式</li></ol><p><strong>decimate方法</strong><br>按照一定频率丢掉一些data points</p><h3 id="信号提取后重新采样"><a href="#信号提取后重新采样" class="headerlink" title="信号提取后重新采样"></a>信号提取后重新采样</h3><ul><li>重新取样时要注意高频成分的aliasing（高频成分反褶到低频信号与之混合）——奈奎斯特定理</li><li>decimate要在降低采样频率前先做低通滤波</li><li>三个function：decimate；downsample；resample</li></ul><h2 id="信号切割与平均"><a href="#信号切割与平均" class="headerlink" title="信号切割与平均"></a>信号切割与平均</h2><p>矩阵常用函数表</p><ul><li>ones %创建特定大小的一矩阵</li><li>zeros %创建特定大小的零矩阵</li><li>rand %创建特定大小的随机矩阵（uniform distribution）</li><li>randn %创建特定大小的随机矩阵（normal distribution）</li><li>size %返回矩阵大小</li><li>length %返回向量长度</li><li>find %返回符合条件的矩阵元素位置</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Lecture note&lt;br&gt;课程：医学信号分析原理&lt;br&gt;老师：国立阳明大学 卢家锋&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="lecture note" scheme="https://miaorg0524.github.io/categories/lecture-note/"/>
+    
+    
+      <category term="signal processing" scheme="https://miaorg0524.github.io/tags/signal-processing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CCA for SSVEP</title>
+    <link href="https://miaorg0524.github.io/2020/04/01/Code%20of%20CCA%20for%20SSVEP/"/>
+    <id>https://miaorg0524.github.io/2020/04/01/Code%20of%20CCA%20for%20SSVEP/</id>
+    <published>2020-04-01T08:38:15.000Z</published>
+    <updated>2020-04-04T03:45:06.430Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="CCA-for-SSVEP"><a href="#CCA-for-SSVEP" class="headerlink" title="CCA for SSVEP"></a>CCA for SSVEP</h1><ul><li>Recently, canonical correlation analysis (CCA) between SSVEPs and sine-cosine reference signals has been used to improve the classification accuracy due to its ability to enhance the signal-to-noise ratio (SNR) of SSVEPs.<a id="more"></a></li><li>CCA works on two sets of variables. In this method, variables in one set are the EEG signals $x(t)$ and $y(t)$ is known as the reference signal, which is shown in Fig.1.<br><img src="https://i.loli.net/2020/04/02/NWR2AzLEeK1JQTS.png" alt="Fig.1"></li><li>CCA(Canonical Correlation Analysis) is a method to reflect the overall correlation between two sets of indicators. Here, we try to find the stimuli $f_m$ which can make the correlation between $x(t)$ and $y(t)$maximum.<sup id="fnref:1"><a href="#fn:1" rel="footnote">&lt;span class=”hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label=”Z. Lin, C. Zhang, W. Wu and X. Gao, “Frequency recognition based on canonical correlation analysis for SSVEP-based BCIs,” in IEEE Transactions on Biomedical Engineering, vol. 54, no. 6, pp. 1172-1176, June 2007.”&gt;[1]</a></sup></li><li>The original CCA mode is shown in Fig.2.<br><img src="https://i.loli.net/2020/04/02/vaJsCS7nAeLPpoU.png" alt="Fig.2"></li><li>Here’s another pic shown in Fig.3.<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Pan J, Gao X, Duan F, Yan Z, Gao S, Enhancing the classification accuracy of steady-state visual evoked potential-based brain-computer interfaces using phase constrained canonical correlation analysis. J Neural Eng. 2011; 8: 036027. ">[2]</span></a></sup><br><img src="https://i.loli.net/2020/04/02/QpKUlwZC3PmGA1I.png" alt="Fig.3"></li></ul><h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><p>Here are three MATLAB files to operate CCA method.</p><blockquote><p><strong><em>function file: CCA.m;</em></strong></p></blockquote><p>It’s a basic CCA function:</p><center>function [Wx, Wy, r] = cca(X,Y)</center><p>Inputs are EEG signal $X$ and reference signal $Y$, and this function will return $W_x$ (coefficient of X), $W_y$(coefficient of Y) and $r$(correlation between $X$ and $Y$).</p><blockquote><p><strong><em>function file: refsig.m;</em></strong></p></blockquote><center>function y=refsig(f, S, T, N)</center><p>This function can find the reference signal $Y$.</p><blockquote><p><strong><em>recognition.m</em></strong></p></blockquote><p>Using these two function file to run CCA for SSVEP and implement recognition.<br>It’s a basic method of frequency detection for SSVEP, we can further explore more methods like FBCCA, MsetCCA, TRCA, etc.</p><h1 id="Some-ideas"><a href="#Some-ideas" class="headerlink" title="Some ideas"></a>Some ideas</h1><ol><li>Generate some noise signals by MATLAB, noted as $N$, try to find the max correlation between $X$ and $N$, the coefficient is noted as W. Then set a new signal $X’$ as $X-WX$. So this signal has the min correlation with noise.<br>This method can reduce the influence of noise. Considering that the noise in SSVEP is kind of random/unordered signal(machine, body…). So I think using random signal to replace it can be work.</li></ol><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Z. Lin, C. Zhang, W. Wu and X. Gao, &quot;Frequency recognition based on canonical correlation analysis for SSVEP-based BCIs,&quot; in IEEE Transactions on Biomedical Engineering, vol. 54, no. 6, pp. 1172-1176, June 2007.<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Pan J, Gao X, Duan F, Yan Z, Gao S, Enhancing the classification accuracy of steady-state visual evoked potential-based brain-computer interfaces using phase constrained canonical correlation analysis. J Neural Eng. 2011; 8: 036027.<a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;CCA-for-SSVEP&quot;&gt;&lt;a href=&quot;#CCA-for-SSVEP&quot; class=&quot;headerlink&quot; title=&quot;CCA for SSVEP&quot;&gt;&lt;/a&gt;CCA for SSVEP&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Recently, canonical correlation analysis (CCA) between SSVEPs and sine-cosine reference signals has been used to improve the classification accuracy due to its ability to enhance the signal-to-noise ratio (SNR) of SSVEPs.&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="review note" scheme="https://miaorg0524.github.io/categories/review-note/"/>
+    
+    
+      <category term="Code" scheme="https://miaorg0524.github.io/tags/Code/"/>
+    
+      <category term="CCA" scheme="https://miaorg0524.github.io/tags/CCA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>This is a trial</title>
+    <link href="https://miaorg0524.github.io/2020/04/01/This-is-a-trial/"/>
+    <id>https://miaorg0524.github.io/2020/04/01/This-is-a-trial/</id>
+    <published>2020-04-01T08:38:15.000Z</published>
+    <updated>2020-04-03T07:58:09.073Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="This-is-a-trial"><a href="#This-is-a-trial" class="headerlink" title="This is a trial"></a>This is a trial</h1><a id="more"></a>  <h2 id="title"><a href="#title" class="headerlink" title="title"></a>title</h2><p>Use # when you want to set a title<br><em>this is italics</em><br><strong>this is bold font</strong><br><strong><em>this is bold italics</em></strong></p><h2 id="para"><a href="#para" class="headerlink" title="para"></a>para</h2><p>This is the first para</p><p>This is the second para</p><h2 id="block-reference"><a href="#block-reference" class="headerlink" title="block reference"></a>block reference</h2><blockquote><p>this is block reference, it will be highlighted.</p></blockquote><h2 id="hyperlink"><a href="#hyperlink" class="headerlink" title="hyperlink"></a>hyperlink</h2><p><a href="hwww.baidu.com">Baidu</a></p><h2 id="Pic"><a href="#Pic" class="headerlink" title="Pic"></a>Pic</h2><p><img src="https://ps.ssl.qhimg.com/sdmt/166_162_100/t013adb7d81196cd6e5.webp" alt="landscape"></p><h2 id="unordered-list"><a href="#unordered-list" class="headerlink" title="unordered list"></a>unordered list</h2><ul><li>unordered term</li><li>unordered term</li><li>unordered term <h2 id="ordered-list"><a href="#ordered-list" class="headerlink" title="ordered list"></a>ordered list</h2></li></ul><ol><li>ordered term </li><li>ordered term</li><li>ordered term<h2 id="saparation"><a href="#saparation" class="headerlink" title="saparation"></a>saparation</h2></li></ol><hr><hr><hr>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;This-is-a-trial&quot;&gt;&lt;a href=&quot;#This-is-a-trial&quot; class=&quot;headerlink&quot; title=&quot;This is a trial&quot;&gt;&lt;/a&gt;This is a trial&lt;/h1&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>your title</title>
+    <link href="https://miaorg0524.github.io/2020/03/31/index/"/>
+    <id>https://miaorg0524.github.io/2020/03/31/index/</id>
+    <published>2020-03-31T09:24:59.000Z</published>
+    <updated>2020-04-02T13:13:57.893Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>

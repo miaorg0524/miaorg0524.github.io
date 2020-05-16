@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>brain computer interface | Miao&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="BCI" />
+  
+  
+  
+  
+  <meta name="description" content="Lecture note课程：Brain Computer Interface老师：Christian Kothe, SCCN, UCSD Lecture 1: Introduction2020.04.04">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Brain Computer Interface">
+<meta property="og:url" content="https://miaorg0524.github.io/2020/04/04/Brain%20Computer%20Interface/index.html">
+<meta property="og:site_name" content="Miao&#39;s blog">
+<meta property="og:description" content="Lecture note课程：Brain Computer Interface老师：Christian Kothe, SCCN, UCSD Lecture 1: Introduction2020.04.04">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2020/04/06/lf1CWxr3svyAHiO.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/06/yIJtO3ReWHwU4jo.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/06/7Q2VrtGvsxUZMaJ.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/06/x2tLCGK3TliphjA.png">
+<meta property="article:published_time" content="2020-04-04T08:57:47.000Z">
+<meta property="article:modified_time" content="2020-04-06T14:54:53.690Z">
+<meta property="article:author" content="Miao Runfeng">
+<meta property="article:tag" content="BCI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/04/06/lf1CWxr3svyAHiO.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Miao&#39;s blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/miaorg0524.github.io/css\images\1.jfif">
+  <link rel="apple-touch-icon" href="/miaorg0524.github.io/css\images\1.jfif">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/miaorg0524.github.io/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/miaorg0524.github.io/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/miaorg0524.github.io/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/miaorg0524.github.io/css/style.css">
+
+
+  
+<script src="/miaorg0524.github.io/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/miaorg0524.github.io/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/miaorg0524.github.io/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/miaorg0524.github.io/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/miaorg0524.github.io/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/miaorg0524.github.io/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/miaorg0524.github.io/css\images\1.jfif">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/miaorg0524.github.io/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/miaorg0524.github.io/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/miaorg0524.github.io/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/miaorg0524.github.io/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/miaorg0524.github.io/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/miaorg0524.github.io/',
+        CONTENT_URL: '/miaorg0524.github.io/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/miaorg0524.github.io/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Brain Computer Interface" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Brain Computer Interface
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/miaorg0524.github.io/2020/04/04/Brain%20Computer%20Interface/" class="article-date">
+	  <time datetime="2020-04-04T08:57:47.000Z" itemprop="datePublished">2020-04-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/miaorg0524.github.io/categories/lecture-note/">lecture note</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Lecture note<br>课程：Brain Computer Interface<br>老师：Christian Kothe, SCCN, UCSD</p>
+<h1 id="Lecture-1-Introduction"><a href="#Lecture-1-Introduction" class="headerlink" title="Lecture 1: Introduction"></a>Lecture 1: Introduction</h1><p>2020.04.04</p>
+<a id="more"></a>  
+<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><ul>
+<li>Linear Algebra</li>
+<li>Fundamentals of Programming</li>
+<li>Coding experience of MATLAB<h2 id="What-is-BCI"><a href="#What-is-BCI" class="headerlink" title="What is BCI?"></a>What is BCI?</h2><h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3></li>
+<li>“The goal of BCI technology is to give severely paralyzed people another way to communicate, a way that does not depend on muscle control.”(1970s)</li>
+<li>“A BCI is a system that measures CNS activity and converts it into artificial output that replaces, restores, enhances, supplements, or improves natural CNS out.”(2015)<h3 id="Three-BCI-Subtypes"><a href="#Three-BCI-Subtypes" class="headerlink" title="Three BCI Subtypes"></a>Three BCI Subtypes</h3></li>
+<li><strong>Active BCI:</strong> “An active BCI is a BCI which derives its outputs from brain activity which is directly consciously controlled by the user, independently from external events, for controlling an application.”</li>
+<li><strong>Reactive BCI:</strong> “A reactive BCI which derives its outputs from brain activity arising in reaction to external stimulation, which is indirectly modulated by the user for controlling an application.”</li>
+<li><strong>Passive BCI:</strong> “A passive BCI is a BCI which derives its outputs from arbitrary brain activity without the purpose of voluntary control, for enriching a human-computer interaction with implicit information.”<h3 id="Brian-Signals"><a href="#Brian-Signals" class="headerlink" title="Brian Signals"></a>Brian Signals</h3></li>
+<li>Electroencephalogram(EEG)</li>
+<li>Functional Near-Infrared Spectroscopy(fNIRS,功能性近红外光谱)</li>
+<li>Magnetoencephalography(MEG,脑磁图描记术)</li>
+<li>Other Invasive Brain Signals…<h3 id="Non-Brain-Signals"><a href="#Non-Brain-Signals" class="headerlink" title="Non-Brain Signals"></a>Non-Brain Signals</h3></li>
+<li>Motion Capture, Eye Tracking</li>
+<li>Electromyography(EMG，肌电图), Electrocardiography(ECG，心电图), Electrooculography(EOG，眼电图)</li>
+<li>Environmental Signals(line noise, room temperature,…)</li>
+</ul>
+<h2 id="Application-Areas-and-Examples"><a href="#Application-Areas-and-Examples" class="headerlink" title="Application Areas and Examples"></a>Application Areas and Examples</h2><h3 id="Communication-and-Control-for-the-Severely-Disabled"><a href="#Communication-and-Control-for-the-Severely-Disabled" class="headerlink" title="Communication and Control for the Severely Disabled"></a>Communication and Control for the Severely Disabled</h3><ul>
+<li>Speller Programs</li>
+<li>Prosthetic Control, Home Automation<h3 id="Operator-Monitoring"><a href="#Operator-Monitoring" class="headerlink" title="Operator Monitoring"></a>Operator Monitoring</h3></li>
+<li>Workload/Fatigue/Alertness monitoring in Pilots,Air Traffic Controllers(All passive BCI above)</li>
+<li>Braking Intent, Lane-Change Intent<h3 id="Forensics"><a href="#Forensics" class="headerlink" title="Forensics"></a>Forensics</h3></li>
+<li>Lie detection, Brain Fingerprinting, Trust assessment<h3 id="Entertainment"><a href="#Entertainment" class="headerlink" title="Entertainment"></a>Entertainment</h3></li>
+<li>Mood Assessment, Gaming, “Thought Control”, Fast Response Detection<h3 id="Social"><a href="#Social" class="headerlink" title="Social"></a>Social</h3></li>
+<li>Neurowear<h3 id="Neuroscience"><a href="#Neuroscience" class="headerlink" title="Neuroscience"></a>Neuroscience</h3></li>
+<li>Multivariate Pattern Analysis/ Brain Imaging </li>
+</ul>
+<h2 id="Scientific-Challenge"><a href="#Scientific-Challenge" class="headerlink" title="Scientific Challenge"></a>Scientific Challenge</h2><h3 id="Related-Areas-in-Science"><a href="#Related-Areas-in-Science" class="headerlink" title="Related Areas in Science"></a>Related Areas in Science</h3><ul>
+<li><strong>Theory is shared with:</strong> Signal Processing, Machine Learning, Computational Intelligence, Neuroscience, Cognitive Science</li>
+<li><strong>Problems are similar to:</strong> Computer Vision, Speech Recognition, Pattern Recognition, Time-Series Analysis, Control Systems &amp; Robotics  </li>
+</ul>
+<h3 id="Why-is-BCI-Hard"><a href="#Why-is-BCI-Hard" class="headerlink" title="Why is BCI Hard?"></a>Why is BCI Hard?</h3><ul>
+<li>Processing depends on unknown parameters(person-specific, task-specific, otherwise variable)</li>
+<li>Signal-to-noise ratio is very challenging, so sensitive measures are hard to obtain(Relevant brain activity is small compared to interfering artifacts and compared to  brain background activity)</li>
+<li>Specific measures are even harder to obtain (with coarse-grained sensing)-Large collections of neurons are involved in many different activities, not just one</li>
+<li>Underlying phenomena are also highly diverse and rich and derived measures are still poorly understood-not always clear what to look for</li>
+<li>EEG signals are mathematically complicated to handle since<font color="red"> all sensors record almost the same signal (superposition of all brain activity)</font>  </li>
+<li>Therefore they need to be computationally (e.g., statistically) disentangled for optimum performance</li>
+</ul>
+<h4 id="Reasons-for-Variability"><a href="#Reasons-for-Variability" class="headerlink" title="Reasons for Variability"></a>Reasons for Variability</h4><ul>
+<li>Folding of cortex differs between any two persons(even monozygotic twins)</li>
+<li>Relevant functional map differs across individuals</li>
+<li>Sensor locations differ across recording sessions</li>
+<li>Brain dynamics are nonstationary at all time scales</li>
+</ul>
+<h3 id="Consequences"><a href="#Consequences" class="headerlink" title="Consequences"></a>Consequences</h3><ul>
+<li>Sophisticated signal processing is required</li>
+<li>All approaches are fundamentally statistical</li>
+<li>BCI systems must be calibrated before they can be used</li>
+<li>Calibration should entail as much information as available, e.g., example data, prior knowledge, large databases</li>
+</ul>
+<h2 id="Available-Tools"><a href="#Available-Tools" class="headerlink" title="Available Tools"></a>Available Tools</h2><ul>
+<li>BioSig: one of the oldest open-source BCI toolboxes for MATLAB/Octave</li>
+<li>BCI2000</li>
+<li>OpenViBE</li>
+<li>g.BSanalyze</li>
+<li>BCILAB: largest collection of BCI algorithms from signal processing, machine learning, etc.(2012)</li>
+</ul>
+<h1 id="Lecture-2-EEG-Basics"><a href="#Lecture-2-EEG-Basics" class="headerlink" title="Lecture 2: EEG Basics"></a>Lecture 2: EEG Basics</h1><h2 id="Underlying-Brain-Processes"><a href="#Underlying-Brain-Processes" class="headerlink" title="Underlying Brain Processes"></a>Underlying Brain Processes</h2><ul>
+<li>All BCIs have to operate on observable effects of brain activity</li>
+<li>Except for fMRI and fNIRS, they operate on effects of neural firing processes</li>
+<li>EEG, MEG and ECoG can only detect large-scale neural dynamics</li>
+<li>For example, 50.000 neurons firing in near-synchrony</li>
+<li>Largest contributors to the EEG are the pyramidal cells</li>
+<li>Radially oriented in the cortex (orthogonal to the surface)Pyramidal cell<br><img src="https://i.loli.net/2020/04/06/lf1CWxr3svyAHiO.png" alt="Pyramidal cell"></li>
+<li>When would 50.000 neurons fire near-synchronously?</li>
+</ul>
+<p>-An external event triggers a cascade of related neural processes (e.g., in perception)<br>-An internal event triggers a cascade of related neural processes (e.g., sudden “aha!”)<br>-Neural populations enter a synchronized steady state firing pattern (e.g., idle oscillations)</p>
+<h2 id="Spatial-Characteristics"><a href="#Spatial-Characteristics" class="headerlink" title="Spatial Characteristics"></a>Spatial Characteristics</h2><p><img src="https://i.loli.net/2020/04/06/yIJtO3ReWHwU4jo.png" alt="brain"></p>
+<h2 id="Temporal-Characteristics"><a href="#Temporal-Characteristics" class="headerlink" title="Temporal Characteristics"></a>Temporal Characteristics</h2><h3 id="Oscillatory-Processes"><a href="#Oscillatory-Processes" class="headerlink" title="Oscillatory Processes"></a>Oscillatory Processes</h3><ul>
+<li>EEG is permeated by oscillatory processes such as the alpha rhythm</li>
+<li><font color="red"> Standard names</font> for such rhythms are delta (0-4Hz), theta (4-7Hz), alpha (8-13Hz), beta (12-30HZ), and gamma (25-100HZ</li>
+</ul>
+<p><strong>Alpha:</strong> Sensory areas (visual cortex, auditory cortex) and Motor areas (motor cortex) exhibit strong alpha-band oscillations when <font color="red"> “idle”</font> in most subjects<br><strong>Beta:</strong> Motor cortex often generates also beta-band oscillations<br><strong>Theta:</strong> Known to occur in <font color="red"> “bursts” relative to events</font> in certain brain areas (e.g. frontal midline, lateral frontal, …)</p>
+<h2 id="Complex-EEG-Phenomena"><a href="#Complex-EEG-Phenomena" class="headerlink" title="Complex EEG Phenomena"></a>Complex EEG Phenomena</h2><p><img src="https://i.loli.net/2020/04/06/7Q2VrtGvsxUZMaJ.png" alt></p>
+<h2 id="Non-Brain-Artifacts"><a href="#Non-Brain-Artifacts" class="headerlink" title="Non-Brain Artifacts"></a>Non-Brain Artifacts</h2><ul>
+<li>Often far outscale the brain processes in the EEG (when present)</li>
+<li><strong>Internally generated:</strong> neck, face and eye muscles, eye dipoles, heart activity</li>
+<li><strong>Externally generated:</strong> 50/60Hz line noise, EM spikes from equipment</li>
+<li><strong>Sensor-related:</strong> DC offset drifts, cable sway, thermal noise, quantization noise</li>
+</ul>
+<p><strong>Muscle Artifacts</strong></p>
+<ul>
+<li>High-frequency/broadband, large amplitude</li>
+<li>Scalp projections are spatially stereotyped(?)</li>
+</ul>
+<p><strong>Eye Blinks</strong></p>
+<ul>
+<li>Large low-frequency peak and rebound, mainly frontal</li>
+<li>Can also incurs non-linear effects in occipital cortex</li>
+</ul>
+<h2 id="Sensing-and-Acquisition"><a href="#Sensing-and-Acquisition" class="headerlink" title="Sensing and Acquisition"></a>Sensing and Acquisition</h2><h3 id="EEG-Sensor-Designs"><a href="#EEG-Sensor-Designs" class="headerlink" title="EEG Sensor Designs"></a>EEG Sensor Designs</h3><ul>
+<li>Most EEG systems are gel-based（基于凝胶的）</li>
+<li>Nowadays mostly using active electrodes</li>
+<li><font color="red">Dry(gel-free)</font> systems are emerging quickly</li>
+</ul>
+<h3 id="Digitization"><a href="#Digitization" class="headerlink" title="Digitization"></a>Digitization</h3><p>After amplification (e.g., 50000x), signal is low-pass filtered using an analog filter, then digitally sampled at fixed rate<br><img src="https://i.loli.net/2020/04/06/x2tLCGK3TliphjA.png" alt></p>
+<h3 id="Sampling-Theorem"><a href="#Sampling-Theorem" class="headerlink" title="Sampling Theorem"></a>Sampling Theorem</h3><p>Nyquist Theorem</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/miaorg0524.github.io/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: 'Your support is my biggest power, thanks!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://i.loli.net/2020/04/04/98DxtlbrCuXNed1.png',
+  alipayImage: 'https://i.loli.net/2020/04/04/v74IKcAbL59YQGp.png'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>Miao Runfeng</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/miaorg0524.github.io/2020/04/04/Brain Computer Interface/" target="_blank" title="Brain Computer Interface">https://miaorg0524.github.io/2020/04/04/Brain Computer Interface/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/miaorg0524.github.io/tags/BCI/" rel="tag">BCI</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/miaorg0524.github.io/2020/04/05/2020%20multi-stimulus%20enhances%20target%20recognition%20methods/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          PaperNote 1：2020 multi-stimulus enhances target recognition methods
+        
+      </div>
+    </a>
+  
+  
+    <a href="/miaorg0524.github.io/2020/04/04/%E5%8C%BB%E5%AD%A6%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90%E5%8E%9F%E7%90%86-signal-processing/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">医学信号分析原理/signal processing</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-1-Introduction"><span class="nav-number">1.</span> <span class="nav-text">Lecture 1: Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Prerequisites"><span class="nav-number">1.1.</span> <span class="nav-text">Prerequisites</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-BCI"><span class="nav-number">1.2.</span> <span class="nav-text">What is BCI?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition"><span class="nav-number">1.2.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Three-BCI-Subtypes"><span class="nav-number">1.2.2.</span> <span class="nav-text">Three BCI Subtypes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Brian-Signals"><span class="nav-number">1.2.3.</span> <span class="nav-text">Brian Signals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Non-Brain-Signals"><span class="nav-number">1.2.4.</span> <span class="nav-text">Non-Brain Signals</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application-Areas-and-Examples"><span class="nav-number">1.3.</span> <span class="nav-text">Application Areas and Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Communication-and-Control-for-the-Severely-Disabled"><span class="nav-number">1.3.1.</span> <span class="nav-text">Communication and Control for the Severely Disabled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operator-Monitoring"><span class="nav-number">1.3.2.</span> <span class="nav-text">Operator Monitoring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forensics"><span class="nav-number">1.3.3.</span> <span class="nav-text">Forensics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Entertainment"><span class="nav-number">1.3.4.</span> <span class="nav-text">Entertainment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Social"><span class="nav-number">1.3.5.</span> <span class="nav-text">Social</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Neuroscience"><span class="nav-number">1.3.6.</span> <span class="nav-text">Neuroscience</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scientific-Challenge"><span class="nav-number">1.4.</span> <span class="nav-text">Scientific Challenge</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Related-Areas-in-Science"><span class="nav-number">1.4.1.</span> <span class="nav-text">Related Areas in Science</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-is-BCI-Hard"><span class="nav-number">1.4.2.</span> <span class="nav-text">Why is BCI Hard?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Reasons-for-Variability"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">Reasons for Variability</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Consequences"><span class="nav-number">1.4.3.</span> <span class="nav-text">Consequences</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Available-Tools"><span class="nav-number">1.5.</span> <span class="nav-text">Available Tools</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-2-EEG-Basics"><span class="nav-number">2.</span> <span class="nav-text">Lecture 2: EEG Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Underlying-Brain-Processes"><span class="nav-number">2.1.</span> <span class="nav-text">Underlying Brain Processes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spatial-Characteristics"><span class="nav-number">2.2.</span> <span class="nav-text">Spatial Characteristics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Temporal-Characteristics"><span class="nav-number">2.3.</span> <span class="nav-text">Temporal Characteristics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Oscillatory-Processes"><span class="nav-number">2.3.1.</span> <span class="nav-text">Oscillatory Processes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Complex-EEG-Phenomena"><span class="nav-number">2.4.</span> <span class="nav-text">Complex EEG Phenomena</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Non-Brain-Artifacts"><span class="nav-number">2.5.</span> <span class="nav-text">Non-Brain Artifacts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sensing-and-Acquisition"><span class="nav-number">2.6.</span> <span class="nav-text">Sensing and Acquisition</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#EEG-Sensor-Designs"><span class="nav-number">2.6.1.</span> <span class="nav-text">EEG Sensor Designs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Digitization"><span class="nav-number">2.6.2.</span> <span class="nav-text">Digitization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sampling-Theorem"><span class="nav-number">2.6.3.</span> <span class="nav-text">Sampling Theorem</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2020 - 2020 Miao&#39;s blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/miaorg0524.github.io/" class="mobile-nav-link">Home</a>
+  
+    <a href="/miaorg0524.github.io/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/miaorg0524.github.io/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/miaorg0524.github.io/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/miaorg0524.github.io/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/miaorg0524.github.io/fancybox/jquery.fancybox.css">
+
+  
+<script src="/miaorg0524.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/miaorg0524.github.io/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/miaorg0524.github.io/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Miao&#39;s blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 Miao Runfeng All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

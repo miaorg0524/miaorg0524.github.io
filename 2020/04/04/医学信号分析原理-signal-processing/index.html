@@ -30,8 +30,10 @@
 <meta property="og:image" content="https://i.loli.net/2020/04/04/IgJOTQADH8aCSni.png">
 <meta property="og:image" content="https://i.loli.net/2020/04/04/Sg9s1IzE7OFAvbf.png">
 <meta property="og:image" content="https://i.loli.net/2020/04/04/vBQk8YA4rL3udlO.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/18/6VX5DWkxyHOma9f.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/20/onpiDhHqPafQtGz.png">
 <meta property="article:published_time" content="2020-04-03T16:07:47.000Z">
-<meta property="article:modified_time" content="2020-04-06T09:09:28.654Z">
+<meta property="article:modified_time" content="2020-05-21T06:06:39.897Z">
 <meta property="article:author" content="Miao Runfeng">
 <meta property="article:tag" content="signal processing">
 <meta name="twitter:card" content="summary">
@@ -331,6 +333,37 @@
 <li>length %返回向量长度</li>
 <li>find %返回符合条件的矩阵元素位置</li>
 </ul>
+<h1 id="Lecture-5-信号事件侦测"><a href="#Lecture-5-信号事件侦测" class="headerlink" title="Lecture 5 信号事件侦测"></a>Lecture 5 信号事件侦测</h1><p>2020.05.18</p>
+<h2 id="MATLAB流程控制"><a href="#MATLAB流程控制" class="headerlink" title="MATLAB流程控制"></a>MATLAB流程控制</h2><p>四个常用控制</p>
+<ul>
+<li>for-loop</li>
+<li>while-loop</li>
+<li>if-elseif-else</li>
+<li>switch-case</li>
+</ul>
+<h2 id="事件阈值侦测"><a href="#事件阈值侦测" class="headerlink" title="事件阈值侦测"></a>事件阈值侦测</h2><p>斜率+peak value</p>
+<h1 id="Lecture-6-信号频谱分析"><a href="#Lecture-6-信号频谱分析" class="headerlink" title="Lecture 6 信号频谱分析"></a>Lecture 6 信号频谱分析</h1><p>2020.05.18</p>
+<h2 id="傅里叶变换"><a href="#傅里叶变换" class="headerlink" title="傅里叶变换"></a>傅里叶变换</h2><ul>
+<li>信噪比(Signal-to-Noise Ratio)<br>信号中有效成分的功率与噪声成分功率之比。单位是dB</li>
+<li>*<font color="red">SNR越大越好</font>**</li>
+</ul>
+<p><img src="https://i.loli.net/2020/05/18/6VX5DWkxyHOma9f.png" alt="image.png"></p>
+<p>傅里叶级数(Fourier Series)</p>
+<ul>
+<li>任何周期性的波形或信号，都可用一系列不同频率的正（余 ）弦波加总来表示</li>
+</ul>
+<p>信号截断(Signal Truncation)</p>
+<ul>
+<li>Window function(MATLAB help window)</li>
+<li>所用window function不同，有限长信号产生的频谱假影(artifacts)不同 </li>
+</ul>
+<h2 id="频谱分析-Spectral-Analysis"><a href="#频谱分析-Spectral-Analysis" class="headerlink" title="频谱分析(Spectral Analysis)"></a>频谱分析(Spectral Analysis)</h2><p><strong>功率频谱(Power Spectrum)</strong></p>
+<ul>
+<li>时间信号的能量</li>
+<li>根据Parseval’s theorem, 时域与频域能量守恒</li>
+</ul>
+<p><strong>快速傅里叶变换FFT</strong><br><img src="https://i.loli.net/2020/05/20/onpiDhHqPafQtGz.png" alt="image.png"><br>nfft: Next power of 2 from length of y<br>这一步可以提升计算效率</p>
+<p><strong>function: awgn(signal,SNR)</strong>;%add white noise to signal acording to a specific SNR</p>
 
       
     </div>
@@ -419,9 +452,9 @@ var a = new Donate({
     </a>
   
   
-    <a href="/miaorg0524.github.io/2020/04/01/Code%20of%20CCA%20for%20SSVEP/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/miaorg0524.github.io/2020/04/01/This-is-a-trial/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">CCA for SSVEP</div>
+      <div class="article-nav-title">This is a trial</div>
     </a>
   
 </nav>
@@ -435,7 +468,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-1"><span class="nav-number">1.</span> <span class="nav-text">Lecture 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生理信号特性"><span class="nav-number">1.1.1.</span> <span class="nav-text">生理信号特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信号的相互干扰"><span class="nav-number">1.1.2.</span> <span class="nav-text">信号的相互干扰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信号间的相关性"><span class="nav-number">1.1.3.</span> <span class="nav-text">信号间的相关性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件自动侦测"><span class="nav-number">1.1.4.</span> <span class="nav-text">事件自动侦测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#量化生理变化程度"><span class="nav-number">1.1.5.</span> <span class="nav-text">量化生理变化程度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析步骤"><span class="nav-number">1.1.6.</span> <span class="nav-text">分析步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号分析实例"><span class="nav-number">1.2.</span> <span class="nav-text">信号分析实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MATLAB基础语法"><span class="nav-number">1.3.</span> <span class="nav-text">MATLAB基础语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-3"><span class="nav-number">2.</span> <span class="nav-text">Lecture 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信号资料格式介绍"><span class="nav-number">2.1.</span> <span class="nav-text">信号资料格式介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资料输入"><span class="nav-number">2.2.</span> <span class="nav-text">资料输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MATLAB信号绘制与资料改写"><span class="nav-number">2.3.</span> <span class="nav-text">MATLAB信号绘制与资料改写</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-4-信号预处理"><span class="nav-number">3.</span> <span class="nav-text">Lecture 4 信号预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信号重新取样"><span class="nav-number">3.1.</span> <span class="nav-text">信号重新取样</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#采样方法"><span class="nav-number">3.1.1.</span> <span class="nav-text">采样方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信号提取后重新采样"><span class="nav-number">3.1.2.</span> <span class="nav-text">信号提取后重新采样</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号切割与平均"><span class="nav-number">3.2.</span> <span class="nav-text">信号切割与平均</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-1"><span class="nav-number">1.</span> <span class="nav-text">Lecture 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生理信号特性"><span class="nav-number">1.1.1.</span> <span class="nav-text">生理信号特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信号的相互干扰"><span class="nav-number">1.1.2.</span> <span class="nav-text">信号的相互干扰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信号间的相关性"><span class="nav-number">1.1.3.</span> <span class="nav-text">信号间的相关性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件自动侦测"><span class="nav-number">1.1.4.</span> <span class="nav-text">事件自动侦测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#量化生理变化程度"><span class="nav-number">1.1.5.</span> <span class="nav-text">量化生理变化程度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析步骤"><span class="nav-number">1.1.6.</span> <span class="nav-text">分析步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号分析实例"><span class="nav-number">1.2.</span> <span class="nav-text">信号分析实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MATLAB基础语法"><span class="nav-number">1.3.</span> <span class="nav-text">MATLAB基础语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-3"><span class="nav-number">2.</span> <span class="nav-text">Lecture 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信号资料格式介绍"><span class="nav-number">2.1.</span> <span class="nav-text">信号资料格式介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资料输入"><span class="nav-number">2.2.</span> <span class="nav-text">资料输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MATLAB信号绘制与资料改写"><span class="nav-number">2.3.</span> <span class="nav-text">MATLAB信号绘制与资料改写</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-4-信号预处理"><span class="nav-number">3.</span> <span class="nav-text">Lecture 4 信号预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信号重新取样"><span class="nav-number">3.1.</span> <span class="nav-text">信号重新取样</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#采样方法"><span class="nav-number">3.1.1.</span> <span class="nav-text">采样方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信号提取后重新采样"><span class="nav-number">3.1.2.</span> <span class="nav-text">信号提取后重新采样</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号切割与平均"><span class="nav-number">3.2.</span> <span class="nav-text">信号切割与平均</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-5-信号事件侦测"><span class="nav-number">4.</span> <span class="nav-text">Lecture 5 信号事件侦测</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MATLAB流程控制"><span class="nav-number">4.1.</span> <span class="nav-text">MATLAB流程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件阈值侦测"><span class="nav-number">4.2.</span> <span class="nav-text">事件阈值侦测</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-6-信号频谱分析"><span class="nav-number">5.</span> <span class="nav-text">Lecture 6 信号频谱分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#傅里叶变换"><span class="nav-number">5.1.</span> <span class="nav-text">傅里叶变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#频谱分析-Spectral-Analysis"><span class="nav-number">5.2.</span> <span class="nav-text">频谱分析(Spectral Analysis)</span></a></li></ol></li></ol>
     
     </div>
   </aside>
